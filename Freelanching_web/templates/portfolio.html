@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>My Portfolio</h1>
+        <p>This is where you can showcase your work and projects.</p>
+        
+        <hr>
+
+        <h3>Upload a New File</h3>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".pdf,.png,.jpg,.jpeg" required>
+            <input type="submit" value="Upload">
+        </form>
+        
+        <hr>
+
+        <h3>My Uploaded Files</h3>
+        {% if files %}
+            <ul>
+            {% for file in files %}
+                <li><a href="{{ url_for('uploaded_file', filename=file.filename) }}" target="_blank">{{ file.filename }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't uploaded any files yet.</p>
+        {% endif %}
+
+        <br>
+        <p><a href="/home">Back to Home</a></p>
+    </main>
+{% include 'footer.html' %}
+</body>
+</html>

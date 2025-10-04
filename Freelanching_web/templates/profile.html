@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Edit Your Profile</h1>
+        <form action="/profile" method="post">
+            <label for="fullName">Full Name:</label><br>
+            <input type="text" id="fullName" name="fullName" value="{{ user.name }}" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="{{ user.email }}" readonly><br><br>
+
+            <label for="skills">Your Skills (comma separated):</label><br>
+            <input type="text" id="skills" name="skills" value="{{ user.skills or '' }}"><br><br>
+
+            <input type="submit" value="Update Profile">
+        </form>
+        <p><a href="/home">Back to Home</a></p>
+    </main>
+{% include 'footer.html' %}
+</body>
+</html>

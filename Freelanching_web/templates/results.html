@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Test Complete!</h1>
+        <h2>Your Score: {{ score }} out of {{ total }}</h2>
+        <p><a href="/home">Back to Home</a></p>
+    </main>
+{% include 'footer.html' %}
+</body>
+</html>

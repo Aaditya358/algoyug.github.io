@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main>
+        <h1>Welcome, {{ user_name }}!</h1>
+        <p>This is your personal dashboard.</p>
+        
+        <a href="/profile"><button>Edit Profile</button></a>
+        <a href="/test"><button>Take Skill Test</button></a>
+        <a href="/portfolio"><button>Portfolio</button></a> <br><br>
+        <a href="/logout"><button>Logout</button></a>
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>

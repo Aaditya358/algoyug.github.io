@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome, [Freelancer Name]</h1>
+        <a href="login.html">Logout</a>
+    </header>
+
+    <main>
+        <h2>Your Profile</h2>
+        <p><strong>Email:</strong> [freelancer_email@example.com]</p>
+        <p><strong>Skills:</strong> [Your Skills]</p>
+        
+        <hr>
+
+        <h2>Assessments</h2>
+        <p>You have not taken any tests yet.</p>
+        <a href="test.html"><button>Take a Skill Test</button></a>
+
+        <hr>
+
+        <h2>Bank Account Verification</h2>
+        <p>Your bank account is not verified.</p>
+        <form>
+            <label for="bankAccount">Bank Account Number:</label><br>
+            <input type="text" id="bankAccount" name="bankAccount"><br><br>
+            <label for="ifsc">IFSC Code:</label><br>
+            <input type="text" id="ifsc" name="ifsc"><br><br>
+            <input type="submit" value="Verify Account">
+        </form>
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>

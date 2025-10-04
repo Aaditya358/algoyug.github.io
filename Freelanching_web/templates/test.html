@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Test</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Basic Knowledge Test</h1>
+        <form action="/test" method="post">
+            {% for question in questions %}
+            <div>
+                {% set outer_loop = loop %}
+                <p><b>{{ outer_loop.index }}. {{ question.text }}</b></p>
+                
+                {% for option in question.options %}
+                    <input type="radio" id="q{{ outer_loop.index }}_{{ loop.index }}" name="q{{ outer_loop.index }}" value="{{ option }}" required>
+                    <label for="q{{ outer_loop.index }}_{{ loop.index }}">{{ option }}</label><br>
+                {% endfor %}
+            </div>
+            <hr>
+            {% endfor %}
+            <input type="submit" value="Submit Test">
+        </form>
+    </main>
+{% include 'footer.html' %}
+</body>
+</html>
